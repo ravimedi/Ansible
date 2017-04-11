@@ -1,0 +1,9 @@
+- name: Install web sserver
+  yum:
+        name: httpd
+        state: installed
+
+- name: Start Web Server
+  service:
+        name: httpd
+        state: started
