@@ -1,5 +1,6 @@
 - name: Install Martiadb
-  yum: name=mariadb-server state=installed
-
-- name: Start MariaDB
-  service: name=mariadb state=started
+  yum: name="{{item}}" state=installed
+  with_items:
+        - MySQL-python
+        - mariadb-server
+        - mariadb

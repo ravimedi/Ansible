@@ -1,9 +1,9 @@
 - name: Install web sserver
   yum:
-        name: httpd
+        name: "{{ item }}"
         state: installed
+  with_items:
+        - httpd
+        - httpd-devel
+        - gcc
 
-#- name: Start Web Server
-#  service:
-#        name: httpd
-#        state: started

@@ -3,7 +3,7 @@
     src: /home/admin/ansible/stacks/playbooks/student.sql
     dest: /tmp/student.sql
 
-- mssql_db:
+- mysql_db:
     name: test
     login_host: localhost
     login_user: root

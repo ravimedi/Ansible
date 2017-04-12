@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  #vars:
+  #     pack_name: httpd
+  vars_files:
+        - "{{ ansible_os_family }}.yaml"
+  tasks:
+        - name: Installe {{pack_name}}
+          yum: name="{{pack_name}}" state=installed
+          when: ansible_os_family = CentOS
+        - name: Install {{pack_name}}
+          apt: name="{{pack_name}}" state=installed
+          when: ansible_os_family = Ubuntu
