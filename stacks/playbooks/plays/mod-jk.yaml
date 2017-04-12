@@ -23,3 +23,11 @@
   copy: 
    src: /home/admin/ansible/stacks/playbooks/mod-jk.conf
    dest: /etc/httpd/conf.d/mod-jk.conf
+
+- name: copy mod-jk.conf file
+  copy:
+   src: /home/admin/ansible/stacks/playbooks/worker.properties
+   dest: /etc/httpd/conf.d/worker.properties
+
+- name: Restart Web Server
+  service: name=httpd state=restarted

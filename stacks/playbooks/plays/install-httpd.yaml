@@ -3,7 +3,7 @@
         name: httpd
         state: installed
 
-- name: Start Web Server
-  service:
-        name: httpd
-        state: started
+#- name: Start Web Server
+#  service:
+#        name: httpd
+#        state: started
