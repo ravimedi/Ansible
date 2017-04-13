@@ -3,12 +3,17 @@
   become: yes
   #vars:
   #     pack_name: httpd
-  vars_files:
-        - "{{ ansible_os_family }}.yaml"
+  #vars_files:
+  #      - "{{ ansible_distribution }}.yaml" 
+  #      - CentOS.yaml
   tasks:
-        - name: Installe {{pack_name}}
+        - name: Installe "{{pack_name}}"
           yum: name="{{pack_name}}" state=installed
-          when: ansible_os_family = CentOS
-        - name: Install {{pack_name}}
+          when: ansible_distribution == "CentOS" 
+          vars_files:
+                - "{{ ansible_distribution }}.yaml"
+        - name: Install "{{pack_name}}"
           apt: name="{{pack_name}}" state=installed
-          when: ansible_os_family = Ubuntu
+          when: ansible_distribution == "Ubuntu"
+          vars_files:
+                - "{{ ansible_distribution }}.yaml"
