@@ -2,4 +2,4 @@
 - hosts: ansiblecentos7
   become: yes
   roles:
-    - envsetup
+    - webserver
